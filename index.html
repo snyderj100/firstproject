@@ -2,14 +2,14 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@1.0.1/build/nn.min.js"></script>
 <script>
   
-  //this is the function that makes emojis
+ //this is the function that makes gifs
   function imageGif () {
     if (!nn.mouseDown) return
     let x = nn.mouseX
     let y = nn.mouseY
 
     nn.create('img')
-      .set ('src','images/flower.gif')
+      .set ('src', currentGif)
       .addTo('main')
       .positionOrigin('center')
       .position(x, y)
@@ -18,6 +18,33 @@
   
   nn.on('mousemove', imageGif)
 
+  function setup () {
+  nn.create('button')
+    .content('🐧')
+    .addTo('body')
+    .on('click', update)
+  // ^ when we click the button,
+  // we call the update() function
+}
+  
+  function update () {
+  currentGif = 'images/penguin.gif'
+}
+
+nn.on('load', setup)
+  
+  function setup () {
+  nn.create('button')
+    .content('🌸')
+    .addTo('body')
+    .on('click', update)
+}
+  
+  function update () {
+  currentGif = 'images/flower.gif'
+}
+
+nn.on('load', setup)
   
   
 </script>
