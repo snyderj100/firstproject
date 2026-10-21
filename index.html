@@ -2,6 +2,8 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@1.0.1/build/nn.min.js"></script>
 <script>
   
+  let currentGif = 'images/flower.gif'
+  
  //this is the function that makes gifs
   function imageGif () {
     if (!nn.mouseDown) return
@@ -22,28 +24,29 @@
   nn.create('button')
     .content('🐧')
     .addTo('body')
-    .on('click', update)
+    .on('click', updatePenguin)
   // ^ when we click the button,
   // we call the update() function
-}
-  
-  function update () {
-  currentGif = 'images/penguin.gif'
-}
-
-nn.on('load', setup)
-  
-  function setup () {
   nn.create('button')
-    .content('🌸')
-    .addTo('body')
-    .on('click', update)
+    .content('⭐')
+    .addTo ('body')
+    .on('click', updateStar)
+  nn.create('button')
+    .content('')
+    .addTo ('body')
+    .on('click', updateFlower)
 }
+  function updatePenguin () {
+    currentGif = 'images/penguin.gif'
+  }
   
-  function update () {
-  currentGif = 'images/flower.gif'
+  function updateFlower () {
+    currentGif = 'images/flower.gif'
 }
 
+  function updateStar () {
+    currentGif = 'images/star.gif'
+  }
 nn.on('load', setup)
   
   
