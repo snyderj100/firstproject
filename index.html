@@ -10,6 +10,7 @@
     if (!nn.mouseDown) return
     let x = nn.mouseX
     let y = nn.mouseY
+    if (nn.mouseY < nn.get ('nav').height) return
 
     nn.create('img')
       .set ('src', currentGif)
@@ -23,10 +24,6 @@
   nn.on('mousemove', imageGif)
 
   function setup () {
-  nn.create('button')
-    .content('🐧')
-    .addTo('nav')
-    .on('click', updatePenguin)
   // ^ when we click the button,
   // we call the update() function
   nn.create('button')
@@ -37,17 +34,30 @@
     .content('🌸')
     .addTo ('nav')
     .on('click', updateFlower)
+  nn.create('button')
+    .content('⚘')
+    .addTo ('nav')
+    .on('click', updateBlueFlower)
+  nn.create('button')
+    .content('🗑️')
+    .addTo ('nav')
+    .on('click', emptyScreen)
 }
-  function updatePenguin () {
-    currentGif = 'images/penguin.gif'
-  }
-  
   function updateFlower () {
     currentGif = 'images/flower.gif'
 }
 
   function updateStar () {
-    currentGif = 'images/star.gif'
+    currentGif = 'images/star2.gif'
+  }
+  
+  function updateBlueFlower () {
+    currentGif = 'images/blueflower.gif'
+  }
+  
+  function emptyScreen () {
+    nn.get('main')
+    .content ('')
   }
 nn.on('load', setup)
   
