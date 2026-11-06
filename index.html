@@ -38,10 +38,15 @@
     .content('⚘')
     .addTo ('nav')
     .on('click', updateBlueFlower)
+   nn.create ('button')
+    .content('🎈')
+    .addTo ('nav')
+    .on('click', updateBalloon)
   nn.create('button')
     .content('🗑️')
     .addTo ('nav')
     .on('click', emptyScreen)
+    
 }
   function updateFlower () {
     currentGif = 'images/flower.gif'
@@ -53,6 +58,10 @@
   
   function updateBlueFlower () {
     currentGif = 'images/blueflower.gif'
+  }
+  
+  function updateBalloon () {
+    currentGif = 'images/balloon.gif'
   }
   
   function emptyScreen () {
